@@ -1,6 +1,8 @@
 import fotoPerfil from "../../assets/img.png";
 import imagemHero from "../../assets/segurancadigital.avif";
 import { getWhatsAppLink } from "../../utils/whatsapp";
+import logo from "../../assets/icp.png";
+import consultiLogo from "../../assets/Consulti-color-white-H.png";
 
 export default function Hero() {
   return (
@@ -74,13 +76,37 @@ export default function Hero() {
 
           {/* TEXTO ABAIXO */}
           <div className="mt-8 space-y-2">
-            <h3 className="text-xl font-semibold text-white tracking-wide">
+            <h3 className="text-xl font-semibold text-white tracking-wide flex items-center justify-center gap-2">
               André César Henrique
+              <a
+                href="https://www.gov.br/iti/pt-br"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Acessar site oficial"
+              >
+                <img
+                  src={logo}
+                  alt="ICP Brasil"
+                  className="h-5 w-auto opacity-70 hover:opacity-100 transition"
+                />
+              </a>
             </h3>
-
-            <p className="text-gray-300 text-sm">
-              Agente de Registro homologado pela Consulti Brasil
+            <p className="text-gray-300 text-sm flex items-center justify-center gap-2 flex-wrap">
+              Agente de Registro homologado pela
+              <a
+                href="https://consultibrasil.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Acessar site oficial"
+              >
+                <img
+                  src={consultiLogo}
+                  alt="Consulti Brasil"
+                  className="h-5 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                />
+              </a>
             </p>
+
             <p className="mt-3 text-sm text-gray-400">
               +100 certificados emitidos com sucesso
             </p>
