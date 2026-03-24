@@ -12,6 +12,8 @@ const certificados = [
     ],
     time: "Emissão em até 10 minutos",
     price: "R$ 150,00",
+    publico: "Ideal para pessoa física",
+    destaque: true,
   },
   {
     title: "e-CNPJ A1",
@@ -24,6 +26,7 @@ const certificados = [
     ],
     time: "Atendimento rápido por videoconferência",
     price: "R$ 200,00",
+    publico: "Ideal para empresas",
   },
 ];
 
@@ -31,7 +34,7 @@ export default function Certificados() {
   return (
     <section className="py-16 px-4 bg-[#020617]">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-white">
-        Tipos de <span className="text-blue-500">Certificado</span>
+        Escolha o certificado ideal para você ou sua empresa
       </h2>
 
       <div className="max-w-6xl mx-auto">
@@ -45,17 +48,37 @@ export default function Certificados() {
           {certificados.map((item, index) => (
             <div
               key={index}
-              className="w-full bg-[#0f172a] rounded-2xl p-6 border border-gray-700 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              className="
+                w-full bg-[#0f172a]
+                rounded-2xl p-6
+                border border-gray-700
+                shadow-xl
+                hover:shadow-2xl hover:-translate-y-1
+                transition-all duration-300
+                flex flex-col
+              "
             >
               {/* TOPO */}
               <div>
-                <span className="text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full">
-                  Certificado Digital
-                </span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full">
+                    Certificado Digital
+                  </span>
+
+                  {item.destaque && (
+                    <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
+                      Mais utilizado
+                    </span>
+                  )}
+                </div>
 
                 <h3 className="text-xl font-semibold text-gray-100 mt-3">
                   {item.title}
                 </h3>
+
+                <p className="text-xs text-gray-400 mt-1">
+                  {item.publico}
+                </p>
 
                 <p className="text-gray-300 mt-2 text-sm leading-relaxed">
                   {item.description}
@@ -66,7 +89,7 @@ export default function Certificados() {
                 <ul className="space-y-3 text-sm text-gray-200">
                   {item.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
+                      <span className="text-emerald-400">✔</span>
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -75,7 +98,9 @@ export default function Certificados() {
 
               {/* BASE */}
               <div className="mt-auto">
-                <div className="mt-5 text-sm text-gray-400">⏱ {item.time}</div>
+                <div className="mt-5 text-sm text-gray-400">
+                  ⚡ Emissão rápida • {item.time}
+                </div>
 
                 <div className="pt-4">
                   <div className="flex items-center justify-between">
@@ -84,18 +109,29 @@ export default function Certificados() {
                     </p>
                     <span className="text-xs text-gray-400">à vista</span>
                   </div>
+
+                  <p className="text-xs text-gray-500 mt-1">
+                    Atendimento imediato após o contato
+                  </p>
+
                   <a
                     href={getWhatsAppLink(
-                      "Olá! Vim pelo site e quero emitir meu certificado digital."
+                      `Olá! Quero emitir o certificado ${item.title}.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-4 bg-gradient-to-r from-blue-600
-                    to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white
-                    text-center py-3 rounded-xl font-semibold transition-all
-                    duration-300 shadow-md hover:shadow-blue-900/30"
+                    className="
+                      block mt-4
+                      bg-gradient-to-r from-blue-600 to-blue-500
+                      hover:from-blue-500 hover:to-blue-400
+                      text-white text-center py-3 rounded-xl
+                      font-semibold text-sm
+                      transition-all duration-300
+                      shadow-md hover:shadow-blue-900/30
+                      hover:scale-105
+                    "
                   >
-                    Falar no WhatsApp
+                    👉 Emitir agora
                   </a>
                 </div>
               </div>

@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @import "@fontsource/inter/index.css";
+* {
+  max-width: 100%;
+}
 body {
   background-color: #020617;
   color: #f8fafc;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;

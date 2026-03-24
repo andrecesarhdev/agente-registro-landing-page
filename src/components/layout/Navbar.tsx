@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../../assets/logoactech.png";
+import { getWhatsAppLink } from "../../utils/whatsapp";
 
 export default function Navbar() {
   const [active, setActive] = useState("inicio");
@@ -37,21 +39,51 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur border-b border-gray-800">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        
-        <a href="#inicio" className="font-semibold text-lg text-white">
-          Consulti Certificados
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+
+        {/* LOGO */}
+        <a href="#inicio" className="flex items-center">
+          <img
+            src={logo}
+            alt="ACTech Certificação Digital"
+            className="h-10 md:h-12 lg:h-14 w-auto max-w-[140px] object-contain"
+          />
         </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex gap-6">
-          <a href="#inicio" className={linkClass("inicio")}>Início</a>
-          <a href="#certificados" className={linkClass("certificados")}>Certificados</a>
-          <a href="#como-funciona" className={linkClass("como-funciona")}>Como funciona</a>
-          <a href="#duvidas" className={linkClass("duvidas")}>Dúvidas</a>
+        {/* MENU DESKTOP */}
+        <div className="hidden md:flex items-center gap-6">
+          <a href="#inicio" className={linkClass("inicio")}>
+            Início
+          </a>
+          <a href="#certificados" className={linkClass("certificados")}>
+            Certificados
+          </a>
+          <a href="#como-funciona" className={linkClass("como-funciona")}>
+            Como funciona
+          </a>
+          <a href="#duvidas" className={linkClass("duvidas")}>
+            Dúvidas
+          </a>
+
+          {/* 🔥 CTA WHATSAPP */}
+          <a
+            href={getWhatsAppLink(
+              "Olá! Quero emitir meu certificado digital."
+            )}
+            target="_blank"
+            className="
+              bg-green-500 hover:bg-green-600
+              text-white px-4 py-2 rounded-lg
+              text-sm font-medium
+              transition
+              hover:scale-105
+            "
+          >
+            Falar agora
+          </a>
         </div>
 
-        {/* Botão mobile */}
+        {/* MOBILE BUTTON */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-white"
@@ -60,9 +92,10 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menu Mobile */}
+      {/* MENU MOBILE */}
       {open && (
-        <div className="md:hidden bg-[#020617] border-t border-gray-800 px-4 pb-4">
+        <div className="md:hidden bg-[#020617] border-t border-gray-800 px-4 pb-4 w-full">
+
           <a href="#inicio" onClick={handleClick} className={linkClass("inicio")}>
             Início
           </a>
@@ -74,6 +107,22 @@ export default function Navbar() {
           </a>
           <a href="#duvidas" onClick={handleClick} className={linkClass("duvidas")}>
             Dúvidas
+          </a>
+
+          {/* 🔥 CTA MOBILE */}
+          <a
+            href={getWhatsAppLink(
+              "Olá! Quero emitir meu certificado digital."
+            )}
+            target="_blank"
+            onClick={handleClick}
+            className="
+              block mt-4
+              bg-green-500 text-white text-center
+              py-2 rounded-lg font-medium
+            "
+          >
+            Falar agora
           </a>
         </div>
       )}

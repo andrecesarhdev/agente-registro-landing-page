@@ -1,3 +1,5 @@
+
+import Abrangencia from "../components/sections/Abrangencia";
 import { Beneficios } from "../components/sections/Beneficios";
 import Certificados from "../components/sections/Certificados";
 import ComoFunciona from "../components/sections/ComoFunciona";
@@ -12,16 +14,16 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section id="certificados" className="scroll-mt-24">
-        <Certificados />
+      <section id="beneficios" className="scroll-mt-24"> 
+        <Beneficios />
       </section>
 
       <section id="como-funciona" className="scroll-mt-24">
         <ComoFunciona />
       </section>
 
-      <section id="beneficios" className="scroll-mt-24"> 
-        <Beneficios />
+      <section id="certificados" className="scroll-mt-24">
+        <Certificados />
       </section>
 
       <section id="conversao" className="scroll-mt-24">
@@ -30,6 +32,9 @@ export default function Home() {
 
       <section id="duvidas" className="scroll-mt-24">
         <Duvidas />
+      </section>
+      <section id="duvidas" className="scroll-mt-24">
+        <Abrangencia />
       </section>
     </>
   );

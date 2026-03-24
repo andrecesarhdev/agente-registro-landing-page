@@ -3,38 +3,39 @@ import { getWhatsAppLink } from "../../utils/whatsapp";
 
 const duvidas = [
   {
-    question: "O que é um Certificado Digital?",
+    question: "O certificado digital A1 é difícil de usar?",
     answer:
-      "É uma identidade eletrônica que permite assinar documentos, acessar sistemas do governo e realizar transações com validade jurídica e segurança.",
+      "Não! O certificado A1 é um arquivo simples instalado no seu computador. Após a emissão, você já pode usar imediatamente para acessar sistemas e assinar documentos.",
   },
   {
-    question: "Qual a diferença entre e-CPF e e-CNPJ?",
+    question: "Quanto tempo leva para emitir o certificado?",
     answer:
-      "O e-CPF é utilizado por pessoas físicas para acessar serviços como o e-CAC e assinar documentos. Já o e-CNPJ é voltado para empresas, permitindo emissão de notas fiscais e acesso a sistemas fiscais.",
+      "A emissão é rápida. Após a validação por videoconferência, seu certificado pode ser liberado em poucos minutos.",
   },
   {
-    question: "Qual a diferença entre A1 e A3?",
+    question: "Preciso ir presencialmente?",
     answer:
-      "O certificado A1 é digital (arquivo instalado no computador) com validade de 1 ano. Já o A3 é armazenado em token ou cartão físico, com validade maior e mais segurança.",
+      "Não. Todo o processo é feito 100% online por videoconferência, com segurança e validade jurídica.",
   },
   {
-    question: "Quais documentos são necessários?",
+    question: "Qual escolher: e-CPF A1 ou e-CNPJ A1?",
     answer:
-      "Documento oficial com foto (RG ou CNH), CPF e, no caso de empresas, documentos da empresa como contrato social.",
+      "O e-CPF A1 é ideal para pessoa física (imposto de renda, assinaturas, e-CAC). Já o e-CNPJ A1 é voltado para empresas (emissão de notas fiscais e acesso a sistemas fiscais).",
   },
   {
-    question: "O certificado é válido em todo o Brasil?",
+    question: "O certificado A1 é seguro?",
     answer:
-      "Sim. O certificado digital tem validade jurídica em todo o território nacional.",
+      "Sim! Ele utiliza criptografia avançada e possui validade jurídica garantida em todo o Brasil.",
   },
   {
-    question: "Posso emitir totalmente online?",
+    question: "Vou ter suporte durante o processo?",
     answer:
-      "Sim! Todo o processo pode ser feito por videoconferência de forma rápida e segura.",
+      "Sim! Você recebe suporte completo desde o primeiro contato até a emissão e instalação do certificado.",
   },
 ];
+
 export default function Duvidas() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -43,29 +44,37 @@ export default function Duvidas() {
   return (
     <section className="py-16 px-4 bg-[#020617]">
       <div className="max-w-4xl mx-auto">
+        
         {/* TÍTULO */}
         <h2 className="text-2xl md:text-3xl font-bold text-center text-white">
-          Tem dúvidas sobre{" "}
-          <span className="text-blue-500">Certificado Digital</span>?
+          Ainda com dúvidas sobre{" "}
+          <span className="text-blue-500">e-CPF ou e-CNPJ A1</span>?
         </h2>
 
         <p className="text-center text-gray-400 mt-3">
-          Veja as respostas para as dúvidas mais comuns
+          Veja como é simples emitir seu certificado digital
         </p>
 
-        {/* FAQ LISTA */}
+        {/* FAQ */}
         <div className="mt-10 space-y-4">
           {duvidas.map((faq, index) => (
             <div
               key={index}
-              className="bg-[#0f172a] border border-gray-700 rounded-xl overflow-hidden transition-all duration-300"
+              className="
+                bg-[#0f172a]
+                border border-gray-700
+                rounded-xl overflow-hidden
+                transition-all duration-300
+                hover:border-blue-500/30
+              "
             >
-              {/* PERGUNTA */}
               <button
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center px-5 py-4 text-left"
               >
-                <span className="text-white font-medium">{faq.question}</span>
+                <span className="text-white font-medium">
+                  {faq.question}
+                </span>
 
                 <span
                   className={`text-blue-500 text-xl transition-transform duration-300 ${
@@ -76,7 +85,6 @@ export default function Duvidas() {
                 </span>
               </button>
 
-              {/* RESPOSTA */}
               <div
                 className={`px-5 transition-all duration-300 ${
                   openIndex === index
@@ -94,18 +102,31 @@ export default function Duvidas() {
 
         {/* CTA FINAL */}
         <div className="text-center mt-10">
-        <a
-          href={getWhatsAppLink(
-            "Olá! Vim pelo site e tenho duvidas sobre como emitir meu certificado digital."
-          )}
-          target="_blank"
-          className="inline-block mt-8 bg-gradient-to-r from-blue-600 to-blue-500
-          hover:from-blue-500 hover:to-blue-400 text-white px-6 py-3 rounded-xl
-          font-semibold transition" 
+          <a
+            href={getWhatsAppLink(
+              "Olá! Tenho dúvidas e quero emitir meu certificado digital."
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-block mt-6
+              bg-gradient-to-r from-blue-600 to-blue-500
+              hover:from-blue-500 hover:to-blue-400
+              text-white px-8 py-4 rounded-xl
+              font-semibold text-lg
+              transition-all duration-300
+              hover:scale-105
+              shadow-lg hover:shadow-blue-900/40
+            "
           >
-          Se ainda tiver dúvidas, estamos a disposição para atende-lo!
-        </a>
+            👉 Tirar dúvidas e emitir agora
+          </a>
+
+          <p className="text-xs text-gray-500 mt-3">
+            Atendimento rápido via WhatsApp
+          </p>
         </div>
+
       </div>
     </section>
   );

@@ -23,23 +23,32 @@ export default function Hero() {
         {/* TEXTO PRINCIPAL */}
         <div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-            Certificado Digital <span className="text-blue-500">rápido</span> e
-            seguro 🔐
+            Emita seu Certificado Digital online,
+            <span className="text-blue-500">
+              {" "}
+              em qualquer lugar do Brasil
+            </span>{" "}
+            🔐
           </h1>
+
           <p className="mt-4 text-gray-300 text-lg">
-            Emissão e renovação por videoconferência em poucos minutos, com
-            total segurança.
+            Atendimento 100% online com validação por videoconferência. Rápido,
+            seguro e sem burocracia.
+          </p>
+
+          <p className="mt-2 text-sm text-gray-400">
+            Atendimento para todo o Brasil • Base em Recife
           </p>
           <a
             href={getWhatsAppLink(
-              "Olá! Quero entender qual certificado digital é ideal para mim."
+              "Olá! Quero emitir meu certificado digital. Pode me ajudar?"
             )}
             target="_blank"
             className="inline-block mt-6 bg-gradient-to-r from-blue-600
             to-blue-500 hover:from-blue-500 hover:to-blue-400 px-6 py-3 rounded-xl
-            font-medium transition" 
-            >
-            Falar no WhatsApp
+            font-medium transition"
+          >
+            Emitir meu certificado agora
           </a>
         </div>
 
@@ -72,10 +81,13 @@ export default function Hero() {
             <p className="text-gray-300 text-sm">
               Agente de Registro homologado pela Consulti Brasil
             </p>
+            <p className="mt-3 text-sm text-gray-400">
+              +100 certificados emitidos com sucesso
+            </p>
 
             <div className="mt-4 flex justify-center">
               <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs">
-                ✔ Atendimento seguro e autorizado
+                ✔ Agente autorizado • Atendimento 100% online
               </span>
             </div>
           </div>
